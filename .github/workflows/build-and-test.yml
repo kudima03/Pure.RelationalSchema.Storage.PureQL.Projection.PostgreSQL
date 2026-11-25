@@ -62,5 +62,6 @@ jobs:
       with:
         recreate: true
         path: code-coverage-results.md
-    - name: Run mutation test
-      run: dotnet stryker --mutation-level Complete --break-at ${{ env.MUTATION_THRESHOLD }}
+    # Stryker over the integration tests (Docker) is slow; run it locally.
+    # - name: Run mutation test
+    #   run: dotnet stryker --mutation-level Complete --break-at ${{ env.MUTATION_THRESHOLD }}

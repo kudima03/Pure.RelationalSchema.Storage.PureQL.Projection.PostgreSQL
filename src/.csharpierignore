@@ -1,0 +1,3 @@
+# Kept as dotnet format writes it: csharpier indents its multi-line
+# property patterns otherwise, and the two cannot both pass.
+Tests/Pure.RelationalSchema.Storage.PureQL.Projection.PostgreSQL.Tests/Data/TreeText.cs
