@@ -34,7 +34,7 @@ The adapter between the PureQL interpreter (`Pure.RelationalSchema.Storage.PureQ
 
 **Exactness rule:** rewrite only where PostgreSQL then computes exactly the specification's result (its README, *Semantics*). A rewritten tree only ever runs in PostgreSQL, so a shape is chosen for the SQL the translator writes for it, not for its .NET meaning. Every deliberate non-rewrite has a comment and a test that it still runs in memory with the right result.
 
-**Not AOT-compatible** (`IsAotCompatible = false`), like the interpreter. **Target framework:** net11.0 only. **Package validation:** `EnablePackageValidation = true`; set `PackageValidationBaselineVersion` after the first release.
+**Not AOT-compatible** (`IsAotCompatible = false`), like the interpreter. **Target framework:** net11.0 only. **Package validation:** `EnablePackageValidation = true`, with `PackageValidationBaselineVersion` currently `0.1.0-preview.0.1.0`, the latest release. Breaking API changes against the baseline fail the build.
 
 **Tests** (`src/Tests/...Tests`):
 - `Rewriting/` (no Docker): `FramesTests` (every frame form → SQL text or kept), `WindowTests`, `RecursionTests`, `FunctionTests` (tree in → `Data/TreeText` out, and kept trees unchanged), `ClosedTests`, `SampleTreeTests` (every sample's rewritten tree over `Data/RefusingTable`s: no `RewritingTable` left, one marker or PureQL operator per window and recursion, and the in-memory result unchanged).
