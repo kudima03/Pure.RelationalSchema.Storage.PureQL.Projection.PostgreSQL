@@ -18,6 +18,10 @@ end_of_line = lf
 [*.sln]
 indent_style = tab
 
+# Visual Studio XML Solution Files
+[*.slnx]
+indent_size = 2
+
 # Visual Studio XML Project Files
 [*.{csproj,vbproj,vcxproj.filters,proj,projitems,shproj}]
 indent_size = 2
@@ -407,3 +411,11 @@ dotnet_naming_symbols.parameters_group.applicable_kinds = parameter
 dotnet_naming_rule.parameters_rule.symbols              = parameters_group
 dotnet_naming_rule.parameters_rule.style                = camel_case_style
 dotnet_naming_rule.parameters_rule.severity             = warning
+
+# Tests blocked on another package are skipped with the reason as Skip; the
+# analyzer default nudges toward always-running tests, which does not apply.
+[Tests/**.cs]
+dotnet_diagnostic.xUnit1004.severity = none
+# Theories over expression trees name their rows by the tree's text.
+dotnet_diagnostic.xUnit1044.severity = none
+dotnet_diagnostic.xUnit1045.severity = none
